@@ -453,12 +453,12 @@
           </select>
 
           <label class="aceptacion">
-            <input type="checkbox" id="consentimiento" required>
-            <span>
-              Autorizo el uso de mis datos para recibir
-              información sobre el curso seleccionado.
-            </span>
-          </label>
+  <input type="checkbox" id="consentimiento" name="consentimiento" value="Sí" required>
+  <span>
+    Autorizo el uso de mis datos para recibir
+    información sobre el curso seleccionado.
+  </span>
+</label>
 
           <button class="boton" type="submit">
             Enviar solicitud
@@ -486,13 +486,31 @@
       function(event) {
         event.preventDefault();
 
-        document.getElementById("mensaje").textContent =
-          "Los datos son válidos, pero el formulario todavía " +
-          "no está conectado para recibir solicitudes. " +
-          "Debemos configurar ese servicio antes de publicarlo.";
+        const formulario = document.getElementById("formulario");
+        const mensaje = document.getElementById("mensaje");
+
+        mensaje.textContent = "Enviando solicitud...";
+
+        fetch(formulario.action, {
+          method: "POST",
+          body: new FormData(formulario)
+        })
+          .then(async respuesta => {
+            const resultado = await respuesta.json();
+
+            if (respuesta.ok && resultado.success) {
+              mensaje.textContent = "¡Solicitud enviada correctamente!";
+              formulario.reset();
+            } else {
+              mensaje.textContent = "No se pudo enviar la solicitud. Intenta de nuevo.";
+            }
+          })
+          .catch(() => {
+            mensaje.textContent = "Error de conexión. Intenta de nuevo.";
+          });
       }
     );
-  </script>
+         </script>
 
 </body>
 </html>
