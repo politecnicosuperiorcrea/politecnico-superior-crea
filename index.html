@@ -1,0 +1,496 @@
+
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Politécnico Superior Crea</title>
+
+  <style>
+    :root {
+      --azul: #08264b;
+      --azul-oscuro: #041a35;
+      --dorado: #e8b64f;
+      --blanco: #ffffff;
+      --fondo: #f4f6fa;
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      margin: 0;
+      font-family: Arial, sans-serif;
+      color: #182b45;
+      line-height: 1.6;
+    }
+
+    header {
+      background: var(--azul-oscuro);
+      color: white;
+      padding: 15px 6%;
+      border-bottom: 4px solid var(--dorado);
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      gap: 15px;
+    }
+
+    .marca {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+
+    .marca img {
+      width: 65px;
+      height: 65px;
+      object-fit: contain;
+    }
+
+    .marca h2 {
+      margin: 0;
+      font-size: 17px;
+    }
+
+    .marca span {
+      display: block;
+      color: var(--dorado);
+      font-family: Georgia, serif;
+      font-size: 30px;
+      letter-spacing: 4px;
+    }
+
+    nav {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 18px;
+    }
+
+    nav a {
+      color: white;
+      text-decoration: none;
+      font-weight: bold;
+    }
+
+    nav a:hover {
+      color: var(--dorado);
+    }
+
+    .hero {
+      background: linear-gradient(120deg, var(--azul-oscuro), var(--azul));
+      color: white;
+      padding: 80px 8%;
+      text-align: center;
+    }
+
+    .hero h1 {
+      font-size: clamp(32px, 5vw, 52px);
+      line-height: 1.15;
+      margin: 10px auto 20px;
+      max-width: 850px;
+    }
+
+    .hero h1 span {
+      color: var(--dorado);
+    }
+
+    .hero p {
+      max-width: 680px;
+      margin: 0 auto 28px;
+      font-size: 18px;
+    }
+
+    .boton {
+      display: inline-block;
+      background: var(--dorado);
+      color: var(--azul-oscuro);
+      padding: 13px 23px;
+      border: none;
+      border-radius: 7px;
+      font-size: 16px;
+      font-weight: bold;
+      text-decoration: none;
+      cursor: pointer;
+    }
+
+    .boton:hover {
+      background: #ffda83;
+    }
+
+    section {
+      padding: 55px 7%;
+    }
+
+    .titulo {
+      color: var(--azul);
+      font-size: 32px;
+      margin-top: 0;
+      margin-bottom: 8px;
+    }
+
+    .subtitulo {
+      color: #5b6879;
+      margin-top: 0;
+      margin-bottom: 30px;
+    }
+
+    .cursos {
+      background: var(--fondo);
+    }
+
+    .rejilla {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 22px;
+    }
+
+    .tarjeta {
+      background: white;
+      padding: 25px;
+      border-radius: 12px;
+      border: 1px solid #e1e5ed;
+      box-shadow: 0 5px 16px #08264b10;
+    }
+
+    .icono {
+      font-size: 38px;
+    }
+
+    .tarjeta h3 {
+      color: var(--azul);
+      font-size: 21px;
+    }
+
+    .etiqueta {
+      display: inline-block;
+      padding: 5px 12px;
+      background: #fff2d0;
+      border-radius: 20px;
+      font-size: 13px;
+      font-weight: bold;
+    }
+
+    .nosotros {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 35px;
+      align-items: center;
+    }
+
+    .panel {
+      background: var(--azul);
+      color: white;
+      padding: 28px;
+      border-left: 5px solid var(--dorado);
+      border-radius: 12px;
+    }
+
+    .panel h3 {
+      color: var(--dorado);
+    }
+
+    .inscripcion {
+      background: var(--azul-oscuro);
+      color: white;
+    }
+
+    .inscripcion .titulo {
+      color: white;
+    }
+
+    .formulario-contenido {
+      display: grid;
+      grid-template-columns: 1fr 1.2fr;
+      gap: 35px;
+      align-items: start;
+    }
+
+    form {
+      background: white;
+      color: #182b45;
+      padding: 28px;
+      border-radius: 12px;
+    }
+
+    label {
+      display: block;
+      font-weight: bold;
+      margin-bottom: 6px;
+    }
+
+    input, select {
+      width: 100%;
+      padding: 12px;
+      margin-bottom: 17px;
+      border: 1px solid #cbd5e1;
+      border-radius: 6px;
+      font-size: 16px;
+    }
+
+    .aceptacion {
+      display: flex;
+      align-items: flex-start;
+      gap: 9px;
+      font-size: 13px;
+      font-weight: normal;
+      margin-bottom: 18px;
+    }
+
+    .aceptacion input {
+      width: auto;
+      margin-top: 5px;
+    }
+
+    form .boton {
+      width: 100%;
+    }
+
+    #mensaje {
+      color: #8a4b00;
+      font-weight: bold;
+    }
+
+    footer {
+      background: #031326;
+      color: white;
+      text-align: center;
+      padding: 25px;
+    }
+
+    footer strong {
+      color: var(--dorado);
+    }
+
+    @media (max-width: 750px) {
+      header {
+        align-items: flex-start;
+        flex-direction: column;
+      }
+
+      .rejilla,
+      .nosotros,
+      .formulario-contenido {
+        grid-template-columns: 1fr;
+      }
+
+      .hero {
+        padding: 55px 6%;
+      }
+
+      nav {
+        gap: 12px;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+  <header>
+    <div class="marca">
+      <!-- Guarda tu logo PNG en esta misma carpeta -->
+      <img src="logo_politecnico_superior_crea.png"
+           alt="Logo de Politécnico Superior Crea">
+
+      <h2>POLITÉCNICO SUPERIOR
+        <span>CREA</span>
+      </h2>
+    </div>
+
+    <nav>
+      <a href="#inicio">Inicio</a>
+      <a href="#nosotros">Nosotros</a>
+      <a href="#cursos">Cursos</a>
+      <a href="#inscripcion">Inscripción</a>
+      <a href="#contacto">Contacto</a>
+    </nav>
+  </header>
+
+  <main>
+    <section class="hero" id="inicio">
+      <h1>Aprende hoy y <span>construye tu futuro</span></h1>
+
+      <p>
+        En el Politécnico Superior Crea te ofrecemos
+        oportunidades de formación para desarrollar
+        tus conocimientos y habilidades.
+      </p>
+
+      <a class="boton" href="#cursos">Conoce nuestros cursos</a>
+    </section>
+
+    <section class="cursos" id="cursos">
+      <h2 class="titulo">Nuestros cursos</h2>
+
+      <p class="subtitulo">
+        Elige la formación que más se adapte a tus intereses.
+      </p>
+
+      <div class="rejilla">
+
+        <article class="tarjeta">
+          <div class="icono">🎉</div>
+          <h3>Organización de Eventos</h3>
+          <p>
+            Aprende conceptos de planificación,
+            coordinación y organización de eventos.
+          </p>
+          <span class="etiqueta">Precio por confirmar</span>
+          <p>
+            <a href="#inscripcion">Solicitar información →</a>
+          </p>
+        </article>
+
+        <article class="tarjeta">
+          <div class="icono">🎈</div>
+          <h3>Organización de Eventos Petit</h3>
+          <p>
+            Conoce herramientas e ideas para organizar
+            celebraciones pequeñas y eventos especiales.
+          </p>
+          <span class="etiqueta">Precio por confirmar</span>
+          <p>
+            <a href="#inscripcion">Solicitar información →</a>
+          </p>
+        </article>
+
+        <article class="tarjeta">
+          <div class="icono">📊</div>
+          <h3>Excel</h3>
+          <p>
+            Desarrolla habilidades para trabajar con
+            hojas de cálculo y organizar información.
+          </p>
+          <span class="etiqueta">Precio por confirmar</span>
+          <p>
+            <a href="#inscripcion">Solicitar información →</a>
+          </p>
+        </article>
+
+      </div>
+    </section>
+
+    <section id="nosotros">
+      <div class="nosotros">
+        <div>
+          <h2 class="titulo">¿Quiénes somos?</h2>
+          <p>
+            El Politécnico Superior Crea es un proyecto
+            educativo orientado a promover el aprendizaje
+            y el desarrollo de nuevas habilidades.
+          </p>
+          <p>
+            Estamos preparando una oferta de cursos en
+            línea para personas interesadas en ampliar
+            sus conocimientos.
+          </p>
+        </div>
+
+        <div class="panel">
+          <h3>Tu desarrollo, nuestra misión</h3>
+          <p>
+            Queremos ayudarte a encontrar nuevas
+            oportunidades de aprendizaje y crecimiento.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <section class="inscripcion" id="inscripcion">
+      <div class="formulario-contenido">
+
+        <div>
+          <h2 class="titulo">Solicita información</h2>
+          <p>
+            Déjanos tus datos y dinos qué curso te interesa.
+            Podremos contactarte cuando el sistema de
+            recepción de solicitudes esté configurado.
+          </p>
+        </div>
+
+        <form id="formulario">
+          <label for="nombre">Nombre completo</label>
+          <input
+            type="text"
+            id="nombre"
+            name="nombre"
+            autocomplete="name"
+            maxlength="120"
+            required
+            placeholder="Escribe tu nombre">
+
+          <label for="correo">Correo electrónico</label>
+          <input
+            type="email"
+            id="correo"
+            name="correo"
+            autocomplete="email"
+            maxlength="160"
+            required
+            placeholder="nombre@correo.com">
+
+          <label for="telefono">Número de teléfono</label>
+          <input
+            type="tel"
+            id="telefono"
+            name="telefono"
+            autocomplete="tel"
+            maxlength="30"
+            required
+            placeholder="Tu número de contacto">
+
+          <label for="curso">Curso de interés</label>
+          <select id="curso" name="curso" required>
+            <option value="">Selecciona un curso</option>
+            <option>Organización de Eventos</option>
+            <option>Organización de Eventos Petit</option>
+            <option>Excel</option>
+          </select>
+
+          <label class="aceptacion">
+            <input type="checkbox" id="consentimiento" required>
+            <span>
+              Autorizo el uso de mis datos para recibir
+              información sobre el curso seleccionado.
+            </span>
+          </label>
+
+          <button class="boton" type="submit">
+            Enviar solicitud
+          </button>
+
+          <p id="mensaje" role="status" aria-live="polite"></p>
+        </form>
+      </div>
+    </section>
+  </main>
+
+  <footer id="contacto">
+    <strong>POLITÉCNICO SUPERIOR CREA</strong>
+    <p>Formación para tu futuro.</p>
+    <p>Contacto: agrega aquí el correo oficial de la institución.</p>
+    <p>© <span id="anio"></span> Politécnico Superior Crea</p>
+  </footer>
+
+  <script>
+    document.getElementById("anio").textContent =
+      new Date().getFullYear();
+
+    document.getElementById("formulario").addEventListener(
+      "submit",
+      function(event) {
+        event.preventDefault();
+
+        document.getElementById("mensaje").textContent =
+          "Los datos son válidos, pero el formulario todavía " +
+          "no está conectado para recibir solicitudes. " +
+          "Debemos configurar ese servicio antes de publicarlo.";
+      }
+    );
+  </script>
+
+</body>
+</html>
