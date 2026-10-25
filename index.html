@@ -1,9 +1,14 @@
-
 <!DOCTYPE html>
 <html lang="es">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <meta
+    name="description"
+    content="Politécnico Superior Crea. Cursos de formación en organización de eventos y Excel."
+  >
+
   <title>Politécnico Superior Crea</title>
 
   <style>
@@ -11,43 +16,64 @@
       --azul: #08264b;
       --azul-oscuro: #041a35;
       --dorado: #e8b64f;
+      --dorado-claro: #ffda83;
       --blanco: #ffffff;
       --fondo: #f4f6fa;
-      h1, h2, h3 {
-  font-family: Georgia, serif;
-  color: #08264b;
-  font-weight: bold;
-  line-height: 1.3;
-}
-
-h1 {
-  font-size: 2.5rem;
-  letter-spacing: 1px;
-}
-
-h2 {
-  font-size: 2rem;
-}
-
-h3 {
-  font-size: 1.4rem;
-}
+      --texto: #182b45;
+      --gris: #5b6879;
+      --borde: #e1e5ed;
+      --verde-whatsapp: #25d366;
     }
 
     * {
       box-sizing: border-box;
+      scroll-behavior: smooth;
     }
 
-   body {
-  margin: 0;
-  font-family: Georgia, serif;
-  color: #08264b;
-  line-height: 1.7;
-}
+    body {
+      margin: 0;
+      font-family: Georgia, "Times New Roman", serif;
+      color: var(--texto);
+      line-height: 1.7;
+      background: var(--blanco);
+    }
+
+    h1,
+    h2,
+    h3 {
+      font-family: Georgia, "Times New Roman", serif;
+      font-weight: bold;
+      line-height: 1.3;
+    }
+
+    h1 {
+      font-size: 2.5rem;
+      letter-spacing: 1px;
+    }
+
+    h2 {
+      font-size: 2rem;
+    }
+
+    h3 {
+      font-size: 1.4rem;
+    }
+
+    a {
+      color: var(--azul);
+    }
+
+    a:focus-visible,
+    button:focus-visible,
+    input:focus-visible,
+    select:focus-visible {
+      outline: 3px solid var(--dorado);
+      outline-offset: 3px;
+    }
 
     header {
       background: var(--azul-oscuro);
-      color: white;
+      color: var(--blanco);
       padding: 15px 6%;
       border-bottom: 4px solid var(--dorado);
       display: flex;
@@ -71,36 +97,53 @@ h3 {
 
     .marca h2 {
       margin: 0;
+      color: var(--blanco);
       font-size: 17px;
+      line-height: 1.2;
     }
 
     .marca span {
       display: block;
       color: var(--dorado);
-      font-family: Georgia, serif;
       font-size: 30px;
       letter-spacing: 4px;
     }
 
     nav {
       display: flex;
+      align-items: center;
       flex-wrap: wrap;
       gap: 18px;
     }
 
     nav a {
-      color: white;
+      color: var(--blanco);
       text-decoration: none;
       font-weight: bold;
+      transition: color 0.3s ease;
     }
 
     nav a:hover {
       color: var(--dorado);
     }
 
+    .nav-whatsapp {
+      background: var(--verde-whatsapp);
+      color: var(--blanco) !important;
+      padding: 8px 13px;
+      border-radius: 6px;
+    }
+
+    .nav-whatsapp:hover {
+      background: #1ebe5d;
+      color: var(--blanco) !important;
+    }
+
     .hero {
-      background: linear-gradient(120deg, var(--azul-oscuro), var(--azul));
-      color: white;
+      background:
+        linear-gradient(120deg, rgba(4, 26, 53, 0.97), rgba(8, 38, 75, 0.94)),
+        url("psc1.png") center / cover;
+      color: var(--blanco);
       padding: 80px 8%;
       text-align: center;
     }
@@ -129,14 +172,28 @@ h3 {
       padding: 13px 23px;
       border: none;
       border-radius: 7px;
+      font-family: inherit;
       font-size: 16px;
       font-weight: bold;
       text-decoration: none;
       cursor: pointer;
+      transition: all 0.3s ease;
     }
 
     .boton:hover {
-      background: #ffda83;
+      background: var(--dorado-claro);
+      transform: translateY(-2px);
+    }
+
+    .boton-whatsapp {
+      background: var(--verde-whatsapp);
+      color: var(--blanco);
+      margin-top: 12px;
+    }
+
+    .boton-whatsapp:hover {
+      background: #1ebe5d;
+      color: var(--blanco);
     }
 
     section {
@@ -151,7 +208,7 @@ h3 {
     }
 
     .subtitulo {
-      color: #5b6879;
+      color: var(--gris);
       margin-top: 0;
       margin-bottom: 30px;
     }
@@ -167,11 +224,17 @@ h3 {
     }
 
     .tarjeta {
-      background: white;
+      background: var(--blanco);
       padding: 25px;
       border-radius: 12px;
-      border: 1px solid #e1e5ed;
-      box-shadow: 0 5px 16px #08264b10;
+      border: 1px solid var(--borde);
+      box-shadow: 0 5px 16px rgba(8, 38, 75, 0.08);
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+
+    .tarjeta:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 10px 22px rgba(8, 38, 75, 0.14);
     }
 
     .icono {
@@ -183,10 +246,20 @@ h3 {
       font-size: 21px;
     }
 
+    .tarjeta a {
+      font-weight: bold;
+      text-decoration: none;
+    }
+
+    .tarjeta a:hover {
+      text-decoration: underline;
+    }
+
     .etiqueta {
       display: inline-block;
       padding: 5px 12px;
       background: #fff2d0;
+      color: #684b00;
       border-radius: 20px;
       font-size: 13px;
       font-weight: bold;
@@ -201,7 +274,7 @@ h3 {
 
     .panel {
       background: var(--azul);
-      color: white;
+      color: var(--blanco);
       padding: 28px;
       border-left: 5px solid var(--dorado);
       border-radius: 12px;
@@ -213,11 +286,11 @@ h3 {
 
     .inscripcion {
       background: var(--azul-oscuro);
-      color: white;
+      color: var(--blanco);
     }
 
     .inscripcion .titulo {
-      color: white;
+      color: var(--blanco);
     }
 
     .formulario-contenido {
@@ -228,8 +301,8 @@ h3 {
     }
 
     form {
-      background: white;
-      color: #182b45;
+      background: var(--blanco);
+      color: var(--texto);
       padding: 28px;
       border-radius: 12px;
     }
@@ -240,13 +313,21 @@ h3 {
       margin-bottom: 6px;
     }
 
-    input, select {
+    input,
+    select {
       width: 100%;
       padding: 12px;
       margin-bottom: 17px;
       border: 1px solid #cbd5e1;
       border-radius: 6px;
+      font-family: inherit;
       font-size: 16px;
+    }
+
+    input:focus,
+    select:focus {
+      border-color: var(--azul);
+      outline: 2px solid rgba(8, 38, 75, 0.15);
     }
 
     .aceptacion {
@@ -270,11 +351,12 @@ h3 {
     #mensaje {
       color: #8a4b00;
       font-weight: bold;
+      min-height: 24px;
     }
 
     footer {
       background: #031326;
-      color: white;
+      color: var(--blanco);
       text-align: center;
       padding: 25px;
     }
@@ -283,24 +365,75 @@ h3 {
       color: var(--dorado);
     }
 
+    footer a {
+      color: var(--dorado);
+      font-weight: bold;
+    }
+
+    .whatsapp-flotante {
+      position: fixed;
+      right: 20px;
+      bottom: 20px;
+      z-index: 1000;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      background: var(--verde-whatsapp);
+      color: var(--blanco);
+      padding: 12px 17px;
+      border-radius: 50px;
+      text-decoration: none;
+      font-weight: bold;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.25);
+      transition: transform 0.3s ease, background 0.3s ease;
+    }
+
+    .whatsapp-flotante:hover {
+      background: #1ebe5d;
+      color: var(--blanco);
+      transform: scale(1.05);
+    }
+
+    @media (max-width: 850px) {
+      .rejilla,
+      .nosotros,
+      .formulario-contenido {
+        grid-template-columns: 1fr;
+      }
+    }
+
     @media (max-width: 750px) {
       header {
         align-items: flex-start;
         flex-direction: column;
       }
 
-      .rejilla,
-      .nosotros,
-      .formulario-contenido {
-        grid-template-columns: 1fr;
+      nav {
+        gap: 12px;
       }
 
       .hero {
         padding: 55px 6%;
       }
 
-      nav {
-        gap: 12px;
+      .hero p {
+        font-size: 16px;
+      }
+
+      section {
+        padding: 45px 6%;
+      }
+
+      .whatsapp-flotante span {
+        display: none;
+      }
+
+      .whatsapp-flotante {
+        width: 52px;
+        height: 52px;
+        justify-content: center;
+        padding: 0;
+        font-size: 24px;
       }
     }
   </style>
@@ -310,27 +443,44 @@ h3 {
 
   <header>
     <div class="marca">
-      <!-- Guarda tu logo PNG en esta misma carpeta -->
-      <img src="psc1.png"
-           alt="Logo de Politécnico Superior Crea">
+      <img
+        src="psc1.png"
+        alt="Logo de Politécnico Superior Crea"
+        width="65"
+        height="65"
+      >
 
-      <h2>POLITÉCNICO SUPERIOR
+      <h2>
+        POLITÉCNICO SUPERIOR
         <span>CREA</span>
       </h2>
     </div>
 
-    <nav>
+    <nav aria-label="Navegación principal">
       <a href="#inicio">Inicio</a>
       <a href="#nosotros">Nosotros</a>
       <a href="#cursos">Cursos</a>
       <a href="#inscripcion">Inscripción</a>
       <a href="#contacto">Contacto</a>
+
+      <a
+        class="nav-whatsapp"
+        href="https://wa.me/18095551234?text=Hola%2C%20quiero%20recibir%20informaci%C3%B3n%20sobre%20los%20cursos%20del%20Politécnico%20Superior%20Crea."
+        target="_blank"
+        rel="noopener noreferrer"
+        aria-label="Contactar por WhatsApp"
+      >
+        WhatsApp
+      </a>
     </nav>
   </header>
 
   <main>
     <section class="hero" id="inicio">
-      <h1>Aprende hoy y <span>construye tu futuro</span></h1>
+      <h1>
+        Aprende hoy y
+        <span>construye tu futuro</span>
+      </h1>
 
       <p>
         En el Politécnico Superior Crea te ofrecemos
@@ -338,7 +488,20 @@ h3 {
         tus conocimientos y habilidades.
       </p>
 
-      <a class="boton" href="#cursos">Conoce nuestros cursos</a>
+      <a class="boton" href="#cursos">
+        Conoce nuestros cursos
+      </a>
+
+      <br>
+
+      <a
+        class="boton boton-whatsapp"
+        href="https://wa.me/18095551234?text=Hola%2C%20quiero%20informaci%C3%B3n%20sobre%20los%20cursos%20del%20Politécnico%20Superior%20Crea."
+        target="_blank"
+        rel="noopener noreferrer"
+      >
+        💬 Escríbenos por WhatsApp
+      </a>
     </section>
 
     <section class="cursos" id="cursos">
@@ -349,50 +512,59 @@ h3 {
       </p>
 
       <div class="rejilla">
-
         <article class="tarjeta">
           <div class="icono">🎉</div>
           <h3>Organización de Eventos</h3>
+
           <p>
             Aprende conceptos de planificación,
             coordinación y organización de eventos.
           </p>
+
           <span class="etiqueta">Precio por confirmar</span>
+
           <p>
-            
-            <a href="#inscripcion">Solicitar información →</a>
-          </p>
-          <p>
-            Déjanos tus datos y dinos qué curso te interesa. Nos pondremos en contacto.
+            <a class="enlace-curso" href="#inscripcion" data-curso="Organización de Eventos">
+              Solicitar información →
+            </a>
           </p>
         </article>
 
         <article class="tarjeta">
           <div class="icono">🎈</div>
           <h3>Organización de Eventos Petit</h3>
+
           <p>
             Conoce herramientas e ideas para organizar
             celebraciones pequeñas y eventos especiales.
           </p>
+
           <span class="etiqueta">Precio por confirmar</span>
+
           <p>
-            <a href="#inscripcion">Solicitar información →</a>
+            <a class="enlace-curso" href="#inscripcion" data-curso="Organización de Eventos Petit">
+              Solicitar información →
+            </a>
           </p>
         </article>
 
         <article class="tarjeta">
           <div class="icono">📊</div>
           <h3>Excel</h3>
+
           <p>
             Desarrolla habilidades para trabajar con
             hojas de cálculo y organizar información.
           </p>
+
           <span class="etiqueta">Precio por confirmar</span>
+
           <p>
-            <a href="#inscripcion">Solicitar información →</a>
+            <a class="enlace-curso" href="#inscripcion" data-curso="Excel">
+              Solicitar información →
+            </a>
           </p>
         </article>
-
       </div>
     </section>
 
@@ -400,20 +572,23 @@ h3 {
       <div class="nosotros">
         <div>
           <h2 class="titulo">¿Quiénes somos?</h2>
+
           <p>
             El Politécnico Superior Crea es un proyecto
             formativo orientado a promover el aprendizaje
             y el desarrollo de nuevas habilidades.
           </p>
+
           <p>
-            Estamos preparando una oferta de cursos en
-            línea para personas interesadas en ampliar
+            Estamos preparando una oferta de cursos
+            en línea para personas interesadas en ampliar
             sus conocimientos.
           </p>
         </div>
 
         <div class="panel">
           <h3>Tu desarrollo, nuestra misión</h3>
+
           <p>
             Queremos ayudarte a encontrar nuevas
             oportunidades de aprendizaje y crecimiento.
@@ -424,17 +599,48 @@ h3 {
 
     <section class="inscripcion" id="inscripcion">
       <div class="formulario-contenido">
-
         <div>
           <h2 class="titulo">Solicita información</h2>
+
           <p>
-            Déjanos tus datos y dinos qué curso te interesa. Nos pondremos en contacto contigo 
+            Déjanos tus datos y dinos qué curso te interesa.
+            Nos pondremos en contacto contigo.
           </p>
+
+          <a
+            class="boton boton-whatsapp"
+            id="whatsapp-formulario"
+            href="https://wa.me/18095551234?text=Hola%2C%20quiero%20solicitar%20informaci%C3%B3n%20sobre%20un%20curso%20del%20Politécnico%20Superior%20Crea."
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            💬 Consultar por WhatsApp
+          </a>
         </div>
 
-        <form id="formulario" action="https://api.web3forms.com/submit" method="POST">
-          <input type="hidden" name="access_key" value="3919623b-25ec-4df3-bd8e-4c6a31246217">
-<input type="hidden" name="subject" value="Nueva solicitud - Politécnico Superior CREA">
+        <form
+          id="formulario"
+          action="https://api.web3forms.com/submit"
+          method="POST"
+        >
+          <input
+            type="hidden"
+            name="access_key"
+            value="3919623b-25ec-4df3-bd8e-4c6a31246217"
+          >
+
+          <input
+            type="hidden"
+            name="subject"
+            value="Nueva solicitud - Politécnico Superior CREA"
+          >
+
+          <input
+            type="hidden"
+            name="from_name"
+            value="Sitio web Politécnico Superior Crea"
+          >
+
           <label for="nombre">Nombre completo</label>
           <input
             type="text"
@@ -443,7 +649,8 @@ h3 {
             autocomplete="name"
             maxlength="120"
             required
-            placeholder="Escribe tu nombre">
+            placeholder="Escribe tu nombre"
+          >
 
           <label for="correo">Correo electrónico</label>
           <input
@@ -453,7 +660,8 @@ h3 {
             autocomplete="email"
             maxlength="160"
             required
-            placeholder="nombre@correo.com">
+            placeholder="nombre@correo.com"
+          >
 
           <label for="telefono">Número de teléfono</label>
           <input
@@ -463,23 +671,37 @@ h3 {
             autocomplete="tel"
             maxlength="30"
             required
-            placeholder="Tu número de contacto">
+            placeholder="Tu número de contacto"
+          >
 
           <label for="curso">Curso de interés</label>
           <select id="curso" name="curso" required>
             <option value="">Selecciona un curso</option>
-            <option>Organización de Eventos</option>
-            <option>Organización de Eventos Petit</option>
-            <option>Excel</option>
+            <option value="Organización de Eventos">
+              Organización de Eventos
+            </option>
+            <option value="Organización de Eventos Petit">
+              Organización de Eventos Petit
+            </option>
+            <option value="Excel">
+              Excel
+            </option>
           </select>
 
           <label class="aceptacion">
-  <input type="checkbox" id="consentimiento" name="consentimiento" value="Sí" required>
-  <span>
-    Autorizo el uso de mis datos para recibir
-    información sobre el curso seleccionado.
-  </span>
-</label>
+            <input
+              type="checkbox"
+              id="consentimiento"
+              name="consentimiento"
+              value="Sí"
+              required
+            >
+
+            <span>
+              Autorizo el uso de mis datos para recibir
+              información sobre el curso seleccionado.
+            </span>
+          </label>
 
           <button class="boton" type="submit">
             Enviar solicitud
@@ -493,46 +715,114 @@ h3 {
 
   <footer id="contacto">
     <strong>POLITÉCNICO SUPERIOR CREA</strong>
+
     <p>Formación para tu futuro.</p>
-    <p>Contacto: 	
-politecnicosuperiorcrea@gmail.com.</p>
-    <p>© <span id="anio"></span> Politécnico Superior Crea</p>
+
+    <p>
+      Contacto:
+      <a href="mailto:politecnicosuperiorcrea@gmail.com">
+        politecnicosuperiorcrea@gmail.com
+      </a>
+    </p>
+
+    <p>
+      WhatsApp:
+      <a
+        href="https://wa.me/18095551234?text=Hola%2C%20quiero%20informaci%C3%B3n%20sobre%20los%20cursos%20del%20Politécnico%20Superior%20Crea."
+        target="_blank"
+        rel="noopener noreferrer"
+      >
+        Escribir ahora
+      </a>
+    </p>
+
+    <p>
+      © <span id="anio"></span>
+      Politécnico Superior Crea
+    </p>
   </footer>
 
+  <a
+    class="whatsapp-flotante"
+    href="https://wa.me/18095551234?text=Hola%2C%20quiero%20m%C3%A1s%20informaci%C3%B3n%20sobre%20los%20cursos%20del%20Politécnico%20Superior%20Crea."
+    target="_blank"
+    rel="noopener noreferrer"
+    aria-label="Abrir WhatsApp"
+    title="Escríbenos por WhatsApp"
+  >
+    💬 <span>WhatsApp</span>
+  </a>
+
   <script>
-    document.getElementById("anio").textContent =
-      new Date().getFullYear();
+    const anio = document.getElementById("anio");
+    const formulario = document.getElementById("formulario");
+    const mensaje = document.getElementById("mensaje");
+    const selectorCurso = document.getElementById("curso");
+    const enlaceWhatsAppFormulario = document.getElementById("whatsapp-formulario");
 
-    document.getElementById("formulario").addEventListener(
-      "submit",
-      function(event) {
-        event.preventDefault();
+    anio.textContent = new Date().getFullYear();
 
-        const formulario = document.getElementById("formulario");
-        const mensaje = document.getElementById("mensaje");
+    // Actualiza el mensaje de WhatsApp según el curso seleccionado.
+    function actualizarEnlaceWhatsApp() {
+      const curso = selectorCurso.value;
+      const texto = curso
+        ? `Hola, quiero recibir más información sobre el curso de ${curso} del Politécnico Superior Crea.`
+        : "Hola, quiero recibir información sobre los cursos del Politécnico Superior Crea.";
 
-        mensaje.textContent = "Enviando solicitud...";
+      enlaceWhatsAppFormulario.href =
+        `https://wa.me/18095551234?text=${encodeURIComponent(texto)}`;
+    }
 
-        fetch(formulario.action, {
+    selectorCurso.addEventListener("change", actualizarEnlaceWhatsApp);
+
+    // Al elegir un curso en una tarjeta, queda seleccionado en el formulario.
+    document.querySelectorAll(".enlace-curso").forEach((enlace) => {
+      enlace.addEventListener("click", () => {
+        selectorCurso.value = enlace.dataset.curso;
+        actualizarEnlaceWhatsApp();
+      });
+    });
+
+    formulario.addEventListener("submit", async function (event) {
+      event.preventDefault();
+
+      const boton = formulario.querySelector("button[type='submit']");
+      const textoOriginal = boton.textContent;
+
+      boton.disabled = true;
+      boton.textContent = "Enviando...";
+      mensaje.textContent = "";
+
+      try {
+        const respuesta = await fetch(formulario.action, {
           method: "POST",
-          body: new FormData(formulario)
-        })
-          .then(async respuesta => {
-            const resultado = await respuesta.json();
+          body: new FormData(formulario),
+          headers: {
+            Accept: "application/json"
+          }
+        });
 
-            if (respuesta.ok && resultado.success) {
-              mensaje.textContent = "¡Solicitud enviada correctamente!";
-              formulario.reset();
-            } else {
-              mensaje.textContent = "No se pudo enviar la solicitud. Intenta de nuevo.";
-            }
-          })
-          .catch(() => {
-            mensaje.textContent = "Error de conexión. Intenta de nuevo.";
-          });
+        const resultado = await respuesta.json();
+
+        if (respuesta.ok && resultado.success) {
+          mensaje.textContent =
+            "¡Solicitud enviada correctamente! Nos pondremos en contacto contigo.";
+          mensaje.style.color = "#16803c";
+          formulario.reset();
+          actualizarEnlaceWhatsApp();
+        } else {
+          throw new Error("No se pudo enviar el formulario.");
+        }
+      } catch (error) {
+        mensaje.textContent =
+          "No se pudo enviar la solicitud. Intenta nuevamente.";
+        mensaje.style.color = "#b42318";
+      } finally {
+        boton.disabled = false;
+        boton.textContent = textoOriginal;
       }
-    );
-         </script>
+    });
+  </script>
 
 </body>
 </html>
