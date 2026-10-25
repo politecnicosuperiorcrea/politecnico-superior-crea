@@ -220,35 +220,92 @@
     .rejilla {
       display: grid;
       grid-template-columns: repeat(3, minmax(0, 1fr));
-      gap: 22px;
+      gap: 25px;
     }
 
+    /* --- ESTILOS DE TARJETAS CON IMAGEN DE FONDO --- */
     .tarjeta {
       background: var(--blanco);
-      padding: 25px;
       border-radius: 12px;
       border: 1px solid var(--borde);
       box-shadow: 0 5px 16px rgba(8, 38, 75, 0.08);
       transition: transform 0.3s ease, box-shadow 0.3s ease;
+      overflow: hidden;
+      display: flex;
+      flex-direction: column;
     }
 
     .tarjeta:hover {
       transform: translateY(-5px);
-      box-shadow: 0 10px 22px rgba(8, 38, 75, 0.14);
+      box-shadow: 0 12px 24px rgba(8, 38, 75, 0.16);
     }
 
-    .icono {
-      font-size: 38px;
+    .tarjeta-cabecera {
+      position: relative;
+      height: 180px;
+      background-size: cover;
+      background-position: center;
+      display: flex;
+      align-items: flex-end;
+      padding: 20px;
     }
 
-    .tarjeta h3 {
-      color: var(--azul);
-      font-size: 21px;
+    /* Capa para asegurar elegancia y legibilidad del texto en la imagen */
+    .tarjeta-cabecera::before {
+      content: "";
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background: linear-gradient(
+        to bottom,
+        rgba(4, 26, 53, 0.3) 0%,
+        rgba(4, 26, 53, 0.85) 100%
+      );
+      z-index: 1;
+    }
+
+    /* Asignación de imágenes de fondo relevantes para cada curso */
+    .bg-eventos {
+      background-image: url("https://images.unsplash.com/photo-1511795409834-ef04bbd61622?auto=format&fit=crop&w=800&q=80");
+    }
+
+    .bg-eventos-petit {
+      background-image: url("https://images.unsplash.com/photo-1519741497674-611481863552?auto=format&fit=crop&w=800&q=80");
+    }
+
+    .bg-excel {
+      background-image: url("https://images.unsplash.com/photo-1460925895917-afdab827c52f?auto=format&fit=crop&w=800&q=80");
+    }
+
+    .tarjeta-cabecera h3 {
+      position: relative;
+      z-index: 2;
+      color: var(--blanco);
+      margin: 0;
+      font-size: 20px;
+      text-shadow: 0 2px 4px rgba(0, 0, 0, 0.5);
+    }
+
+    .tarjeta-contenido {
+      padding: 22px;
+      display: flex;
+      flex-direction: column;
+      flex-grow: 1;
+      justify-content: space-between;
+    }
+
+    .tarjeta-contenido p {
+      margin-top: 0;
+      margin-bottom: 18px;
+      color: var(--texto);
     }
 
     .tarjeta a {
       font-weight: bold;
       text-decoration: none;
+      color: var(--azul);
     }
 
     .tarjeta a:hover {
@@ -263,6 +320,8 @@
       border-radius: 20px;
       font-size: 13px;
       font-weight: bold;
+      margin-bottom: 15px;
+      align-self: flex-start;
     }
 
     .nosotros {
@@ -512,58 +571,61 @@
       </p>
 
       <div class="rejilla">
+        <!-- CURSO 1: Organización de Eventos -->
         <article class="tarjeta">
-          <div class="icono">🎉</div>
-          <h3>Organización de Eventos</h3>
-
-          <p>
-            Aprende conceptos de planificación,
-            coordinación y organización de eventos.
-          </p>
-
-          <span class="etiqueta">Precio por confirmar</span>
-
-          <p>
-            <a class="enlace-curso" href="#inscripcion" data-curso="Organización de Eventos">
-              Solicitar información →
-            </a>
-          </p>
+          <div class="tarjeta-cabecera bg-eventos">
+            <h3>Organización de Eventos</h3>
+          </div>
+          <div class="tarjeta-contenido">
+            <p>
+              Aprende conceptos de planificación,
+              coordinación y organización de eventos.
+            </p>
+            <span class="etiqueta">Precio por confirmar</span>
+            <p>
+              <a class="enlace-curso" href="#inscripcion" data-curso="Organización de Eventos">
+                Solicitar información →
+              </a>
+            </p>
+          </div>
         </article>
 
+        <!-- CURSO 2: Organización de Eventos Petit -->
         <article class="tarjeta">
-          <div class="icono">🎈</div>
-          <h3>Organización de Eventos Petit</h3>
-
-          <p>
-            Conoce herramientas e ideas para organizar
-            celebraciones pequeñas y eventos especiales.
-          </p>
-
-          <span class="etiqueta">Precio por confirmar</span>
-
-          <p>
-            <a class="enlace-curso" href="#inscripcion" data-curso="Organización de Eventos Petit">
-              Solicitar información →
-            </a>
-          </p>
+          <div class="tarjeta-cabecera bg-eventos-petit">
+            <h3>Organización de Eventos Petit</h3>
+          </div>
+          <div class="tarjeta-contenido">
+            <p>
+              Conoce herramientas e ideas para organizar
+              celebraciones pequeñas y eventos especiales.
+            </p>
+            <span class="etiqueta">Precio por confirmar</span>
+            <p>
+              <a class="enlace-curso" href="#inscripcion" data-curso="Organización de Eventos Petit">
+                Solicitar información →
+              </a>
+            </p>
+          </div>
         </article>
 
+        <!-- CURSO 3: Excel -->
         <article class="tarjeta">
-          <div class="icono">📊</div>
-          <h3>Excel</h3>
-
-          <p>
-            Desarrolla habilidades para trabajar con
-            hojas de cálculo y organizar información.
-          </p>
-
-          <span class="etiqueta">Precio por confirmar</span>
-
-          <p>
-            <a class="enlace-curso" href="#inscripcion" data-curso="Excel">
-              Solicitar información →
-            </a>
-          </p>
+          <div class="tarjeta-cabecera bg-excel">
+            <h3>Excel</h3>
+          </div>
+          <div class="tarjeta-contenido">
+            <p>
+              Desarrolla habilidades para trabajar con
+              hojas de cálculo y organizar información.
+            </p>
+            <span class="etiqueta">Precio por confirmar</span>
+            <p>
+              <a class="enlace-curso" href="#inscripcion" data-curso="Excel">
+                Solicitar información →
+              </a>
+            </p>
+          </div>
         </article>
       </div>
     </section>
@@ -826,4 +888,3 @@
 
 </body>
 </html>
-
