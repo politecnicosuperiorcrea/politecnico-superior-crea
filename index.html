@@ -3,7 +3,6 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
   <meta
     name="description"
     content="Politécnico Superior Crea. Cursos de formación en organización de eventos y Excel."
@@ -127,18 +126,6 @@
       color: var(--dorado);
     }
 
-    .nav-whatsapp {
-      background: var(--verde-whatsapp);
-      color: var(--blanco) !important;
-      padding: 8px 13px;
-      border-radius: 6px;
-    }
-
-    .nav-whatsapp:hover {
-      background: #1ebe5d;
-      color: var(--blanco) !important;
-    }
-
     .hero {
       background:
         linear-gradient(120deg, rgba(4, 26, 53, 0.97), rgba(8, 38, 75, 0.94)),
@@ -185,17 +172,6 @@
       transform: translateY(-2px);
     }
 
-    .boton-whatsapp {
-      background: var(--verde-whatsapp);
-      color: var(--blanco);
-      margin-top: 12px;
-    }
-
-    .boton-whatsapp:hover {
-      background: #1ebe5d;
-      color: var(--blanco);
-    }
-
     section {
       padding: 55px 7%;
     }
@@ -223,7 +199,6 @@
       gap: 25px;
     }
 
-    /* --- TARJETAS PROFESIONALES CON IMÁGENES DE ALTA DEFINICIÓN --- */
     .tarjeta {
       background: var(--blanco);
       border-radius: 12px;
@@ -250,7 +225,6 @@
       padding: 20px;
     }
 
-    /* Degradado sutil y sobrio para garantizar contraste y elegancia absoluta */
     .tarjeta-cabecera::before {
       content: "";
       position: absolute;
@@ -266,7 +240,6 @@
       z-index: 1;
     }
 
-    /* Imágenes de alta resolución optimizadas para web */
     .bg-eventos {
       background-image: url("https://images.unsplash.com/photo-1519167758481-83f550bb49b3?auto=format&fit=crop&w=1600&q=85");
     }
@@ -521,16 +494,6 @@
       <a href="#cursos">Cursos</a>
       <a href="#inscripcion">Inscripción</a>
       <a href="#contacto">Contacto</a>
-
-      <a
-        class="nav-whatsapp"
-        href="https://wa.me/50251221621?text=Hola%2C%20quiero%20recibir%20informaci%C3%B3n%20sobre%20los%20cursos%20del%20Politécnico%20Superior%20Crea."
-        target="_blank"
-        rel="noopener noreferrer"
-        aria-label="Contactar por WhatsApp"
-      >
-        WhatsApp
-      </a>
     </nav>
   </header>
 
@@ -549,17 +512,6 @@
 
       <a class="boton" href="#cursos">
         Conoce nuestros cursos
-      </a>
-
-      <br>
-
-      <a
-        class="boton boton-whatsapp"
-        href="https://wa.me/50251221621?text=Hola%2C%20quiero%20informaci%C3%B3n%20sobre%20los%20cursos%20del%20Politécnico%20Superior%20Crea."
-        target="_blank"
-        rel="noopener noreferrer"
-      >
-        💬 Escríbenos por WhatsApp
       </a>
     </section>
 
@@ -668,16 +620,6 @@
             Déjanos tus datos y dinos qué curso te interesa.
             Nos pondremos en contacto contigo.
           </p>
-
-          <a
-            class="boton boton-whatsapp"
-            id="whatsapp-formulario"
-            href="https://wa.me/50251221621?text=Hola%2C%20quiero%20solicitar%20informaci%C3%B3n%20sobre%20un%20curso%20del%20Politécnico%20Superior%20Crea."
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            💬 Consultar por WhatsApp
-          </a>
         </div>
 
         <form
@@ -820,28 +762,13 @@
     const formulario = document.getElementById("formulario");
     const mensaje = document.getElementById("mensaje");
     const selectorCurso = document.getElementById("curso");
-    const enlaceWhatsAppFormulario = document.getElementById("whatsapp-formulario");
 
     anio.textContent = new Date().getFullYear();
 
-    // Actualiza el mensaje de WhatsApp según el curso seleccionado.
-    function actualizarEnlaceWhatsApp() {
-      const curso = selectorCurso.value;
-      const texto = curso
-        ? `Hola, quiero recibir más información sobre el curso de ${curso} del Politécnico Superior Crea.`
-        : "Hola, quiero recibir información sobre los cursos del Politécnico Superior Crea.";
-
-      enlaceWhatsAppFormulario.href =
-        `https://wa.me/50251221621?text=${encodeURIComponent(texto)}`;
-    }
-
-    selectorCurso.addEventListener("change", actualizarEnlaceWhatsApp);
-
-    // Al elegir un curso en una tarjeta, queda seleccionado en el formulario.
+    // Mantener la selección del curso en el formulario al hacer clic en las tarjetas
     document.querySelectorAll(".enlace-curso").forEach((enlace) => {
       enlace.addEventListener("click", () => {
         selectorCurso.value = enlace.dataset.curso;
-        actualizarEnlaceWhatsApp();
       });
     });
 
@@ -871,7 +798,6 @@
             "¡Solicitud enviada correctamente! Nos pondremos en contacto contigo.";
           mensaje.style.color = "#16803c";
           formulario.reset();
-          actualizarEnlaceWhatsApp();
         } else {
           throw new Error("No se pudo enviar el formulario.");
         }
