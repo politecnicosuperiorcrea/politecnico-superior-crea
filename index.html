@@ -390,7 +390,7 @@
       background: #031326;
       color: var(--blanco);
       text-align: center;
-      padding: 25px;
+      padding: 30px 20px;
     }
 
     footer strong {
@@ -400,6 +400,35 @@
     footer a {
       color: var(--dorado);
       font-weight: bold;
+    }
+
+    /* Estilos profesionales para el enlace de Facebook */
+    .redes-sociales {
+      margin: 18px 0;
+      display: flex;
+      justify-content: center;
+    }
+
+    .boton-facebook {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      background: rgba(255, 255, 255, 0.08);
+      color: var(--blanco);
+      padding: 10px 20px;
+      border-radius: 30px;
+      text-decoration: none;
+      font-weight: bold;
+      font-size: 15px;
+      border: 1px solid rgba(232, 182, 79, 0.3);
+      transition: all 0.3s ease;
+    }
+
+    .boton-facebook:hover {
+      background: var(--dorado);
+      color: var(--azul-oscuro);
+      border-color: var(--dorado);
+      transform: translateY(-2px);
     }
 
     .whatsapp-flotante {
@@ -740,6 +769,18 @@
       </a>
     </p>
 
+    <!-- ENLACE DE FACEBOOK CORREGIDO -->
+    <div class="redes-sociales">
+      <a
+        href="https://www.facebook.com/profile.php?id=61595637222040&sk=directory_links"
+        target="_blank"
+        rel="noopener noreferrer"
+        class="boton-facebook"
+      >
+        📘 Visita nuestra página de Facebook
+      </a>
+    </div>
+
     <p>
       © <span id="anio"></span>
       Politécnico Superior Crea
@@ -811,6 +852,5 @@
       }
     });
   </script>
-
 </body>
 </html>
