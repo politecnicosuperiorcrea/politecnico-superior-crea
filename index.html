@@ -189,6 +189,30 @@
       margin-bottom: 30px;
     }
 
+    /* Estilos para el contenedor responsivo de Video */
+    .video-contenedor {
+      position: relative;
+      padding-bottom: 56.25%; /* Relación de aspecto 16:9 */
+      height: 0;
+      overflow: hidden;
+      max-width: 800px;
+      margin: 0 auto;
+      border-radius: 12px;
+      box-shadow: 0 5px 16px rgba(8, 38, 75, 0.15);
+      border: 1px solid var(--borde);
+      background: var(--azul-oscuro);
+    }
+
+    .video-contenedor video {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      border: 0;
+      object-fit: cover;
+    }
+
     .cursos {
       background: var(--fondo);
     }
@@ -316,7 +340,6 @@
       color: var(--dorado);
     }
 
-    /* Estilos para la sección de Aliados Comerciales */
     .aliados-seccion {
       background: var(--blanco);
       text-align: center;
@@ -423,7 +446,6 @@
       min-height: 24px;
     }
 
-    /* Estilos para la sección de Redes Sociales */
     .redes-seccion {
       background: var(--fondo);
       text-align: center;
@@ -568,6 +590,7 @@
 
     <nav aria-label="Navegación principal">
       <a href="#inicio">Inicio</a>
+      <a href="#video-seccion">Video</a>
       <a href="#nosotros">Nosotros</a>
       <a href="#aliados">Aliados</a>
       <a href="#cursos">Cursos</a>
@@ -592,6 +615,20 @@
       <a class="boton" href="#cursos">
         Conoce nuestros cursos
       </a>
+    </section>
+
+    <!-- SECCIÓN DE VIDEO ALOJADO EN GITHUB -->
+    <section id="video-seccion" style="text-align: center;">
+      <h2 class="titulo">Video Promocional</h2>
+      <p class="subtitulo">Conoce más sobre nuestro proyecto formativo.</p>
+      
+      <div class="video-contenedor">
+        <video controls poster="psc1.png">
+          <!-- CAMBIA "tu-video.mp4" por el nombre exacto de tu archivo en GitHub -->
+          <source src="PSC06.MP4" type="video/mp4">
+          Tu navegador no soporta la reproducción de video.
+        </video>
+      </div>
     </section>
 
     <section class="cursos" id="cursos">
@@ -815,11 +852,11 @@
       </div>
     </section>
 
-    <!-- SECCIÓN DE REDES SOCIALES (FACEBOOK E INSTAGRAM) -->
+    <!-- SECCIÓN DE REDES SOCIALES -->
     <section class="redes-seccion" id="redes">
       <h2 class="titulo">Nuestras redes sociales</h2>
       <p class="subtitulo">Conéctate con nosotros y descubre nuestras últimas novedades.</p>
-      
+
       <div class="contenedor-redes">
         <!-- Facebook -->
         <a
