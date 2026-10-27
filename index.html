@@ -189,7 +189,7 @@
       margin-bottom: 30px;
     }
 
-    /* Estilos del contenedor de video con fondo blanco */
+    /* Estilos corregidos para que el video se vea completo sin recortes */
     .video-contenedor {
       position: relative;
       padding-bottom: 56.25%; /* Relación de aspecto 16:9 estándar */
@@ -200,7 +200,7 @@
       border-radius: 12px;
       box-shadow: 0 5px 16px rgba(8, 38, 75, 0.15);
       border: 1px solid var(--borde);
-      background: #ffffff; /* Fondo blanco para las pestañas/bordes del reproductor */
+      background: #000000; /* Fondo negro para rellenar los bordes si el video es diferente */
     }
 
     .video-contenedor video {
@@ -210,7 +210,7 @@
       width: 100%;
       height: 100%;
       border: 0;
-      object-fit: contain; /* Muestra el video completo sin recortes */
+      object-fit: contain; /* Muestra el video completo sin recortar los extremos */
     }
 
     .cursos {
@@ -506,3 +506,483 @@
       position: fixed;
       right: 20px;
       bottom: 20px;
+      z-index: 1000;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      background: var(--verde-whatsapp);
+      color: var(--blanco);
+      padding: 12px 17px;
+      border-radius: 50px;
+      text-decoration: none;
+      font-weight: bold;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.25);
+      transition: transform 0.3s ease, background 0.3s ease;
+    }
+
+    .whatsapp-flotante:hover {
+      background: #1ebe5d;
+      color: var(--blanco);
+      transform: scale(1.05);
+    }
+
+    @media (max-width: 850px) {
+      .rejilla,
+      .nosotros,
+      .formulario-contenido {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    @media (max-width: 750px) {
+      header {
+        align-items: flex-start;
+        flex-direction: column;
+      }
+
+      nav {
+        gap: 12px;
+      }
+
+      .hero {
+        padding: 55px 6%;
+      }
+
+      .hero p {
+        font-size: 16px;
+      }
+
+      section {
+        padding: 45px 6%;
+      }
+
+      .whatsapp-flotante span {
+        display: none;
+      }
+
+      .whatsapp-flotante {
+        width: 52px;
+        height: 52px;
+        justify-content: center;
+        padding: 0;
+        font-size: 24px;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+  <header>
+    <div class="marca">
+      <img
+        src="psc1.png"
+        alt="Logo de Politécnico Superior Crea"
+        width="65"
+        height="65"
+      >
+
+      <h2>
+        POLITÉCNICO SUPERIOR
+        <span>CREA</span>
+      </h2>
+    </div>
+
+    <nav aria-label="Navegación principal">
+      <a href="#inicio">Inicio</a>
+      <a href="#video-seccion">Video</a>
+      <a href="#nosotros">Nosotros</a>
+      <a href="#aliados">Aliados</a>
+      <a href="#cursos">Cursos</a>
+      <a href="#inscripcion">Inscripción</a>
+      <a href="#contacto">Contacto</a>
+    </nav>
+  </header>
+
+  <main>
+    <section class="hero" id="inicio">
+      <h1>
+        Aprende hoy y
+        <span>construye tu futuro</span>
+      </h1>
+
+      <p>
+        En el Politécnico Superior Crea te ofrecemos
+        oportunidades de formación para desarrollar
+        tus conocimientos y habilidades.
+      </p>
+
+      <a class="boton" href="#cursos">
+        Conoce nuestros cursos
+      </a>
+    </section>
+
+    <!-- SECCIÓN DE VIDEO ALOJADO EN GITHUB -->
+    <section id="video-seccion" style="text-align: center;">
+      <h2 class="titulo">Video Promocional</h2>
+      <p class="subtitulo">Conoce más sobre nuestro proyecto formativo.</p>
+      
+      <div class="video-contenedor">
+        <video controls poster="psc1.png">
+          <source src="PSC06.mp4" type="video/mp4">
+          Tu navegador no soporta la reproducción de video.
+        </video>
+      </div>
+    </section>
+
+    <section class="cursos" id="cursos">
+      <h2 class="titulo">Nuestros cursos</h2>
+
+      <p class="subtitulo">
+        Elige la formación que más se adapte a tus intereses.
+      </p>
+
+      <div class="rejilla">
+        <!-- CURSO 1: Organización de Eventos -->
+        <article class="tarjeta">
+          <div class="tarjeta-cabecera bg-eventos">
+            <h3>Organización de Eventos</h3>
+          </div>
+          <div class="tarjeta-contenido">
+            <p>
+              Aprende conceptos de planificación,
+              coordinación y organización de eventos.
+            </p>
+            <span class="etiqueta">Precio por confirmar</span>
+            <p>
+              <a class="enlace-curso" href="#inscripcion" data-curso="Organización de Eventos">
+                Solicitar información →
+              </a>
+            </p>
+          </div>
+        </article>
+
+        <!-- CURSO 2: Organización de Eventos Petit -->
+        <article class="tarjeta">
+          <div class="tarjeta-cabecera bg-eventos-petit">
+            <h3>Organización de Eventos Petit</h3>
+          </div>
+          <div class="tarjeta-contenido">
+            <p>
+              Conoce herramientas e ideas para organizar
+              celebraciones pequeñas y eventos especiales.
+            </p>
+            <span class="etiqueta">Precio por confirmar</span>
+            <p>
+              <a class="enlace-curso" href="#inscripcion" data-curso="Organización de Eventos Petit">
+                Solicitar información →
+              </a>
+            </p>
+          </div>
+        </article>
+
+        <!-- CURSO 3: Excel -->
+        <article class="tarjeta">
+          <div class="tarjeta-cabecera bg-excel">
+            <h3>Excel</h3>
+          </div>
+          <div class="tarjeta-contenido">
+            <p>
+              Desarrolla habilidades para trabajar con
+              hojas de cálculo y organizar información.
+            </p>
+            <span class="etiqueta">Precio por confirmar</span>
+            <p>
+              <a class="enlace-curso" href="#inscripcion" data-curso="Excel">
+                Solicitar información →
+              </a>
+            </p>
+          </div>
+        </article>
+      </div>
+    </section>
+
+    <section id="nosotros">
+      <div class="nosotros">
+        <div>
+          <h2 class="titulo">¿Quiénes somos?</h2>
+
+          <p>
+            El Politécnico Superior Crea es un proyecto
+            formativo orientado a promover el aprendizaje
+            y el desarrollo de nuevas habilidades.
+          </p>
+
+          <p>
+            Estamos preparando una oferta de cursos
+            en línea para personas interesadas en ampliar
+            sus conocimientos.
+          </p>
+        </div>
+
+        <div class="panel">
+          <h3>Tu desarrollo, nuestra misión</h3>
+
+          <p>
+            Queremos ayudarte a encontrar nuevas
+            oportunidades de aprendizaje y crecimiento.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <!-- SECCIÓN DE ALIADOS COMERCIALES -->
+    <section class="aliados-seccion" id="aliados">
+      <h2 class="titulo">Aliados Comerciales</h2>
+      <p class="subtitulo">Empresas e instituciones que confían y colaboran con nuestro proyecto formativo.</p>
+
+      <div class="contenedor-aliados">
+        <div class="tarjeta-aliado">
+          <span class="nombre-aliado">Garosgreen</span>
+        </div>
+
+        <div class="tarjeta-aliado">
+          <span class="nombre-aliado">LivsForm Lykke</span>
+        </div>
+
+        <div class="tarjeta-aliado">
+          <span class="nombre-aliado">Industria Digital</span>
+        </div>
+      </div>
+    </section>
+
+    <section class="inscripcion" id="inscripcion">
+      <div class="formulario-contenido">
+        <div>
+          <h2 class="titulo">Solicita información</h2>
+
+          <p>
+            Déjanos tus datos y dinos qué curso te interesa.
+            Nos pondremos en contacto contigo.
+          </p>
+        </div>
+
+        <form
+          id="formulario"
+          action="https://api.web3forms.com/submit"
+          method="POST"
+        >
+          <input
+            type="hidden"
+            name="access_key"
+            value="3919623b-25ec-4df3-bd8e-4c6a31246217"
+          >
+
+          <input
+            type="hidden"
+            name="subject"
+            value="Nueva solicitud - Politécnico Superior CREA"
+          >
+
+          <input
+            type="hidden"
+            name="from_name"
+            value="Sitio web Politécnico Superior Crea"
+          >
+
+          <label for="nombre">Nombre completo</label>
+          <input
+            type="text"
+            id="nombre"
+            name="nombre"
+            autocomplete="name"
+            maxlength="120"
+            required
+            placeholder="Escribe tu nombre"
+          >
+
+          <label for="correo">Correo electrónico</label>
+          <input
+            type="email"
+            id="correo"
+            name="correo"
+            autocomplete="email"
+            maxlength="160"
+            required
+            placeholder="nombre@correo.com"
+          >
+
+          <label for="telefono">Número de teléfono</label>
+          <input
+            type="tel"
+            id="telefono"
+            name="telefono"
+            autocomplete="tel"
+            maxlength="30"
+            required
+            placeholder="Tu número de contacto"
+          >
+
+          <label for="curso">Curso de interés</label>
+          <select id="curso" name="curso" required>
+            <option value="">Selecciona un curso</option>
+            <option value="Organización de Eventos">
+              Organización de Eventos
+            </option>
+            <option value="Organización de Eventos Petit">
+              Organización de Eventos Petit
+            </option>
+            <option value="Excel">
+              Excel
+            </option>
+          </select>
+
+          <label class="aceptacion">
+            <input
+              type="checkbox"
+              id="consentimiento"
+              name="consentimiento"
+              value="Sí"
+              required
+            >
+
+            <span>
+              Autorizo el uso de mis datos para recibir
+              información sobre el curso seleccionado.
+            </span>
+          </label>
+
+          <button class="boton" type="submit">
+            Enviar solicitud
+          </button>
+
+          <p id="mensaje" role="status" aria-live="polite"></p>
+        </form>
+      </div>
+    </section>
+
+    <!-- SECCIÓN DE REDES SOCIALES -->
+    <section class="redes-seccion" id="redes">
+      <h2 class="titulo">Nuestras redes sociales</h2>
+      <p class="subtitulo">Conéctate con nosotros y descubre nuestras últimas novedades.</p>
+
+      <div class="contenedor-redes">
+        <!-- Facebook -->
+        <a
+          href="https://www.facebook.com/profile.php?id=61595637222040&sk=directory_links"
+          target="_blank"
+          rel="noopener noreferrer"
+          class="boton-social"
+          aria-label="Visita nuestra página de Facebook"
+          title="Visita nuestra página de Facebook"
+        >
+          <svg viewBox="0 0 24 24" aria-hidden="true">
+            <path d="M22 12c0-5.523-4.477-10-10-10S2 6.477 2 12c0 4.991 3.657 9.128 8.438 9.878v-6.987h-2.54V12h2.54V9.797c0-2.506 1.492-3.89 3.777-3.89 1.094 0 2.238.195 2.238.195v2.46h-1.26c-1.243 0-1.63.771-1.63 1.562V12h2.773l-.443 2.89h-2.33v6.988C18.343 21.128 22 16.991 22 12z"/>
+          </svg>
+          <span>Facebook oficial</span>
+        </a>
+
+        <!-- Instagram -->
+        <a
+          href="https://www.instagram.com/politecnicosuperiorcrea/"
+          target="_blank"
+          rel="noopener noreferrer"
+          class="boton-social"
+          aria-label="Visita nuestro perfil de Instagram"
+          title="Visita nuestro perfil de Instagram"
+        >
+          <svg viewBox="0 0 24 24" aria-hidden="true">
+            <path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/>
+          </svg>
+          <span>Instagram oficial</span>
+        </a>
+      </div>
+    </section>
+  </main>
+
+  <footer id="contacto">
+    <strong>POLITÉCNICO SUPERIOR CREA</strong>
+
+    <p>Formación para tu futuro.</p>
+
+    <p>
+      Contacto:
+      <a href="mailto:politecnicosuperiorcrea@gmail.com">
+        politecnicosuperiorcrea@gmail.com
+      </a>
+    </p>
+
+    <p>
+      WhatsApp:
+      <a
+        href="https://wa.me/50251221621?text=Hola%2C%20quiero%20informaci%C3%B3n%20sobre%20los%20cursos%20del%20Politécnico%20Superior%20Crea."
+        target="_blank"
+        rel="noopener noreferrer"
+      >
+        Escribir ahora
+      </a>
+    </p>
+
+    <p>
+      © <span id="anio"></span>
+      Politécnico Superior Crea
+    </p>
+  </footer>
+
+  <a
+    class="whatsapp-flotante"
+    href="https://wa.me/50251221621?text=Hola%2C%20quiero%20más%20información%20sobre%20los%20cursos%20del%20Politécnico%20Superior%20Crea."
+    target="_blank"
+    rel="noopener noreferrer"
+    aria-label="Abrir WhatsApp"
+    title="Escríbenos por WhatsApp"
+  >
+    💬 <span>WhatsApp</span>
+  </a>
+
+  <script>
+    const anio = document.getElementById("anio");
+    const formulario = document.getElementById("formulario");
+    const mensaje = document.getElementById("mensaje");
+    const selectorCurso = document.getElementById("curso");
+
+    anio.textContent = new Date().getFullYear();
+
+    // Mantener la selección del curso en el formulario al hacer clic en las tarjetas
+    document.querySelectorAll(".enlace-curso").forEach((enlace) => {
+      enlace.addEventListener("click", () => {
+        selectorCurso.value = enlace.dataset.curso;
+      });
+    });
+
+    formulario.addEventListener("submit", async function (event) {
+      event.preventDefault();
+
+      const boton = formulario.querySelector("button[type='submit']");
+      const textoOriginal = boton.textContent;
+
+      boton.disabled = true;
+      boton.textContent = "Enviando...";
+      mensaje.textContent = "";
+
+      try {
+        const respuesta = await fetch(formulario.action, {
+          method: "POST",
+          body: new FormData(formulario),
+          headers: {
+            Accept: "application/json"
+          }
+        });
+
+        const resultado = await respuesta.json();
+
+        if (respuesta.ok && resultado.success) {
+          mensaje.textContent =
+            "¡Solicitud enviada correctamente! Nos pondremos en contacto contigo.";
+          mensaje.style.color = "#16803c";
+          formulario.reset();
+        } else {
+          throw new Error("No se pudo enviar el formulario.");
+        }
+      } catch (error) {
+        mensaje.textContent =
+          "No se pudo enviar la solicitud. Intenta nuevamente.";
+        mensaje.style.color = "#b42318";
+      } finally {
+        boton.disabled = false;
+        boton.textContent = textoOriginal;
+      }
+    });
+  </script>
+</body>
+</html>
